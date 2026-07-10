@@ -77,7 +77,7 @@ st.markdown("""
 # ── DONNÉES ──────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv("dataset_laposte.csv")
+    df = pd.read_csv("lapostedata.csv")
     df['date'] = pd.to_datetime(df['date'])
     df['mois'] = df['date'].dt.month
     return df
