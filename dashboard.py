@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# ── CONFIG ───────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="La Poste — Suivi Recommandé",
     page_icon="📬",
@@ -11,7 +10,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ── CSS ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
     .main { background-color: #FAFAFA; }
@@ -69,12 +67,10 @@ st.markdown("""
         font-size: 0.85rem;
         color: #1A1A1A;
     }
-    .recap-table thead th { background-color: #003189 !important; color: white !important; }
     hr { border: none; border-top: 1px solid #E0E0E0; margin: 1.5rem 0; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── DONNÉES ──────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
     df = pd.read_csv("lapostedata.csv")
@@ -102,16 +98,13 @@ with st.sidebar:
 
     st.markdown("### 🚴 Tournées")
     tournees = sorted(df['tournee'].unique())
-    col_a, col_b = st.columns(2)
-    if col_a.button("Toutes", use_container_width=True):
-        st.session_state['tournees_sel'] = tournees
-    if col_b.button("Aucune", use_container_width=True):
-        st.session_state['tournees_sel'] = []
-    tournees_choisies = st.multiselect(
-        "", options=tournees,
-        default=st.session_state.get('tournees_sel', tournees),
-        key="tournees"
-    )
+    select_all = st.checkbox("Toutes les tournées", value=True, key="select_all")
+    if select_all:
+        tournees_choisies = tournees
+    else:
+        tournees_choisies = st.multiselect(
+            "Sélectionner", options=tournees, default=tournees[:1], key="tournees"
+        )
 
     st.markdown("### 📦 Type d'objet")
     types = sorted(df['type_objet'].unique())
@@ -151,7 +144,6 @@ taux_refuse = (dff['statut'] == 'Refusé').mean() * 100
 eligibles = dff[dff['type_objet'].isin(['Recommandé', 'Chronopost'])]
 taux_2e = (eligibles['statut'] == '2ème présentation').mean() * 100 if len(eligibles) > 0 else 0
 
-# Delta mois précédent
 mois_max = dff['mois'].max()
 dff_curr = dff[dff['mois'] == mois_max]
 dff_prev = dff[dff['mois'] == mois_max - 1]
@@ -335,7 +327,6 @@ else:
                               font_color='#1A1A1A', margin=dict(t=10))
         st.plotly_chart(fig_z2, use_container_width=True)
 
-# ── FOOTER ────────────────────────────────────────────────────────────────────
 st.markdown("---")
 st.markdown("""
 <div style='text-align:center; color:#AAAAAA; font-size:0.75rem; padding: 10px 0;'>
