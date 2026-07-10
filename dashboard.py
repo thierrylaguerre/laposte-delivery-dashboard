@@ -242,7 +242,7 @@ with col_l2:
         st.markdown(f'<div class="insight-warn">⚠️ <b>{worst["tournee"]}</b> a le taux le plus faible ({worst["taux"]:.1f}%) — adresses non localisables fréquentes</div>', unsafe_allow_html=True)
 
 with col_r2:
-    st.markdown('<div class="section-title">2ème présentation vs objectif ≥25%</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">2ème présentation vs objectif ≥23%</div>', unsafe_allow_html=True)
     elig = dff[dff['type_objet'].isin(['Recommandé', 'Chronopost'])]
     if len(elig) > 0:
         t2e = elig.groupby('mois')['statut'].apply(
@@ -250,21 +250,21 @@ with col_r2:
         ).reset_index(name='taux')
         t2e['label'] = t2e['mois'].map(MOIS_LABELS)
         t2e['statut_obj'] = t2e['taux'].apply(
-            lambda x: '✅ Objectif atteint' if x >= 25 else '❌ Sous objectif'
+            lambda x: '✅ Objectif atteint' if x >= 23 else '❌ Sous objectif'
         )
         fig4 = px.bar(t2e, x='label', y='taux', color='statut_obj',
                       color_discrete_map={'✅ Objectif atteint': '#003189', '❌ Sous objectif': '#CC0000'},
                       labels={'label': '', 'taux': '% 2ème présentation'})
-        fig4.add_hline(y=25, line_dash='dash', line_color='#FFCD00',
-                       annotation_text='Objectif ≥ 25%', annotation_position='top left')
+        fig4.add_hline(y=23, line_dash='dash', line_color='#FFCD00',
+                       annotation_text='Objectif ≥ 23%', annotation_position='top left')
         fig4.update_layout(plot_bgcolor='white', paper_bgcolor='white',
                            font_color='#1A1A1A', legend_title_text='',
                            margin=dict(t=20, b=10), height=420)
         st.plotly_chart(fig4, use_container_width=True)
-        nb_sous = (t2e['taux'] < 25).sum()
-        nb_ok = (t2e['taux'] >= 25).sum()
+        nb_sous = (t2e['taux'] < 23).sum()
+        nb_ok = (t2e['taux'] >= 23).sum()
         if nb_sous > 0:
-            mois_sous = ', '.join(t2e[t2e['taux'] < 25]['label'].tolist())
+            mois_sous = ', '.join(t2e[t2e['taux'] < 23]['label'].tolist())
             st.markdown(f'<div class="insight-warn">⚠️ <b>{nb_sous} mois sous objectif</b> : {mois_sous} — impact potentiel sur la prime d\'équipe</div>', unsafe_allow_html=True)
         if nb_ok > 0:
             st.markdown(f'<div class="insight-success">✅ <b>{nb_ok} mois atteignent l\'objectif</b> — Nov. et Déc. portés par le pic de volume Noël</div>', unsafe_allow_html=True)
@@ -283,12 +283,12 @@ def recap_mois(g):
         'Distribué (%)': round((g['statut'] == 'Livré').mean() * 100, 1),
         'Avisé (%)': round((g['statut'] == 'Avisé').mean() * 100, 1),
         '2ème présentation (%)': round(taux_2e_g, 1),
-        'Objectif ≥25%': '✅' if taux_2e_g >= 25 else '❌',
+        'Objectif ≥23%': '✅' if taux_2e_g >= 23 else '❌',
     })
 
 recap = dff.groupby('mois').apply(recap_mois).reset_index()
 recap['Mois'] = recap['mois'].map(MOIS_LABELS)
-recap = recap[['Mois', 'Total objets', 'Distribué (%)', 'Avisé (%)', '2ème présentation (%)', 'Objectif ≥25%']]
+recap = recap[['Mois', 'Total objets', 'Distribué (%)', 'Avisé (%)', '2ème présentation (%)', 'Objectif ≥23%']]
 st.dataframe(recap, use_container_width=True, hide_index=True)
 
 st.markdown("---")
@@ -310,8 +310,8 @@ else:
     elig_z = dz[dz['type_objet'].isin(['Recommandé','Chronopost'])]
     taux_2e_z = (elig_z['statut']=='2ème présentation').mean()*100 if len(elig_z) > 0 else 0
     c4.metric("2ème présentation", f"{taux_2e_z:.1f}%",
-              delta="✅ Objectif atteint" if taux_2e_z >= 25 else "❌ Sous objectif",
-              delta_color="normal" if taux_2e_z >= 25 else "inverse")
+              delta="✅ Objectif atteint" if taux_2e_z >= 23 else "❌ Sous objectif",
+              delta_color="normal" if taux_2e_z >= 23 else "inverse")
 
     col_za, col_zb = st.columns(2)
     with col_za:
