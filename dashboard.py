@@ -145,7 +145,7 @@ with col_info:
 st.markdown("---")
 
 # ── KPIs ─────────────────────────────────────────────────────────────────────
-taux_livre = (dff['statut'] == 'Distribué').mean() * 100
+taux_livre = (dff['statut'] == 'Livré').mean() * 100
 taux_avise = (dff['statut'] == 'Avisé').mean() * 100
 taux_refuse = (dff['statut'] == 'Refusé').mean() * 100
 eligibles = dff[dff['type_objet'].isin(['Recommandé', 'Chronopost'])]
