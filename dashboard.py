@@ -162,16 +162,16 @@ if len(dff_prev) > 0:
     curr_livre = (dff_curr['statut'] == 'Livré').mean() * 100
     delta_livre = f"{curr_livre - prev_livre:+.1f}% vs mois préc."
 
-objectif_ok = taux_2e >= 25
+objectif_ok = taux_2e >= 23
 
 col1, col2, col3, col4, col5 = st.columns(5)
 col1.metric("Objets traités", f"{len(dff):,}", help="Volume total sur la période sélectionnée")
 col2.metric("Taux de distribution", f"{taux_livre:.1f}%", delta=delta_livre, help="% d'objets remis au destinataire")
 col3.metric("Taux d'avisé", f"{taux_avise:.1f}%", help="% d'objets déposés en bureau de poste")
 col4.metric("Taux de 2ème présentation", f"{taux_2e:.1f}%",
-    delta="✅ Objectif atteint" if objectif_ok else "❌ Sous objectif (≥25%)",
+    delta="✅ Objectif atteint" if objectif_ok else "❌ Sous objectif (≥23%)",
     delta_color="normal" if objectif_ok else "inverse",
-    help="KPI lié aux primes d'équipe — objectif quadrimestriel ≥ 25%")
+    help="KPI lié aux primes d'équipe — objectif quadrimestriel ≥ 23%")
 col5.metric("Taux de refus", f"{taux_refuse:.1f}%", help="Objets taxés refusés par le destinataire")
 
 st.markdown("---")
