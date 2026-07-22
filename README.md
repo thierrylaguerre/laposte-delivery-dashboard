@@ -1,10 +1,23 @@
 # 📬 Tableau de bord — Suivi des Livraisons La Poste
 
-## 🎯 Contexte
+## 🎯 Contexte & Objectif
 
-Ce projet simule et analyse les performances de livraison d'un secteur postal du 18ème arrondissement de Paris (Îlot CAP 18), sur une période de 6 mois (Juillet — Décembre 2025).
+### Contexte
+Ce projet est né d'une double expérience : celle d'un facteur au quotidien dans le 18ème arrondissement de Paris, et celle d'un étudiant en Master Big Data cherchant à valoriser cette connaissance terrain en compétences Data Analyst.
 
-Les données ont été modélisées à partir d'une expérience terrain réelle en tant que facteur à La Poste, intégrant les vraies contraintes opérationnelles du métier.
+Chaque jour, La Poste distribue des milliers d'objets postaux sur des dizaines de tournées. Les performances de livraison sont suivies chaque mois par les managers via un récapitulatif interne : taux de distribution, taux d'avisé, taux de 2ème présentation. Ce dernier est directement lié aux primes d'équipe, avec un objectif quadrimestriel fixé à ≥ 23%.
+
+### Problématique
+**Comment analyser et visualiser les performances de livraison d'un secteur postal pour identifier les tournées sous-performantes et piloter l'atteinte des objectifs ?**
+
+### Objectif du projet
+- Modéliser un dataset réaliste à partir des vraies contraintes opérationnelles du terrain (formats de numéros de tracking, types d'objets, logique des statuts, saisonnalité)
+- Construire un dashboard interactif permettant de suivre les KPIs clés du secteur
+- Reproduire le récapitulatif mensuel utilisé en interne par La Poste
+- Identifier les tournées et périodes sous-performantes pour aider à la prise de décision
+
+### Ce qui rend ce projet unique
+Les données ne sont pas issues d'un dataset Kaggle générique — elles ont été entièrement modélisées à partir d'une connaissance terrain réelle : vrais formats de numéros de tracking, vrais noms de tournées, vrais taux de livraison par zone (résidentielle, entreprises, HLM), vraie saisonnalité (creux vacances d'été, pic Noël +50%).
 
 ## 📊 Dashboard interactif
 
