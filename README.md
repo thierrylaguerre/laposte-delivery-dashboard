@@ -13,15 +13,14 @@ Les données ont été modélisées à partir d'une expérience terrain réelle 
 🔗 **[Accéder au dashboard en ligne](LIEN_STREAMLIT_ICI)**
 
 ## 🗂️ Structure du projet
-``
+```
 laposte-delivery-dashboard/
 │
 ├── dashboard.py          # Application Streamlit
 ├── lapostedata.csv       # Dataset simulé (95 000 lignes)
 ├── requirements.txt      # Dépendances Python
 └── README.md
-``
-
+````
 
 
 ## 📦 Données simulées
