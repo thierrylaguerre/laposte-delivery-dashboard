@@ -51,12 +51,23 @@ laposte-delivery-dashboard/
 
 ## 📈 Analyses réalisées
 
-- Volume mensuel avec pic Noël (+50% en décembre)
-- Taux de distribution par tournée (TL-1476 zone entreprises vs résidentiel)
-- Taux de 2ème présentation vs objectif quadrimestriel ≥ 23%
-- Répartition par type d'objet
-- Zoom interactif par tournée
+### 🔹 Volume mensuel
+Analyse de l'évolution du volume d'objets sur 6 mois avec identification du creux estival (Juillet-Août, grandes vacances) et du pic de Décembre (+50% lié aux cadeaux de Noël).
 
+### 🔹 Taux de distribution par tournée
+Comparaison des 14 tournées du secteur. Mise en évidence de TL-1476 (zone d'entreprises : 65% de distribution) vs les tournées résidentielles (~30-35%) où les destinataires sont majoritairement absents en journée.
+
+### 🔹 Taux de 2ème présentation
+Suivi mensuel du KPI lié aux primes d'équipe (objectif quadrimestriel ≥ 23%). Identification des mois sous objectif et analyse de l'impact du volume de Noël sur la performance.
+
+### 🔹 Répartition par type d'objet
+Distribution des volumes entre Recommandé (type majoritaire), Lettre Suivie, Colissimo et Chronopost (PM2 / PM2-BAL). Mise en évidence des spécificités de chaque type (signature obligatoire, boîte aux lettres, objets taxés hors UE).
+
+### 🔹 Analyse des statuts d'échec
+Identification et quantification des causes de non-distribution : Avisé, Fausse direction, Adresse incorrecte, Inconnu à l'adresse, Réexpédition, Refus (objets taxés).
+
+### 🔹 Zoom interactif par tournée
+Analyse individuelle de chaque tournée : volume mensuel, répartition des statuts, taux de distribution et performance vs objectif.
 ## 🛠️ Stack technique
 
 - **Python** · Pandas · Plotly
