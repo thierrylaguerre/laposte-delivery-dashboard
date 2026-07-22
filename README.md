@@ -1,3 +1,29 @@
+# 📬 Tableau de bord — Suivi des Livraisons La Poste
+
+> Projet portfolio Data Analyst · Paris 18ème · 2025
+
+## 🎯 Contexte
+
+Ce projet simule et analyse les performances de livraison d'un secteur postal du 18ème arrondissement de Paris (Îlot CAP 18), sur une période de 6 mois (Juillet — Décembre 2025).
+
+Les données ont été modélisées à partir d'une expérience terrain réelle en tant que facteur à La Poste, intégrant les vraies contraintes opérationnelles du métier.
+
+## 📊 Dashboard interactif
+
+🔗 **[Accéder au dashboard en ligne](LIEN_STREAMLIT_ICI)**
+
+## 🗂️ Structure du projet
+``
+laposte-delivery-dashboard/
+│
+├── dashboard.py          # Application Streamlit
+├── lapostedata.csv       # Dataset simulé (95 000 lignes)
+├── requirements.txt      # Dépendances Python
+└── README.md
+``
+
+
+
 ## 📦 Données simulées
 
 **95 000 lignes** · 14 tournées · 6 mois
