@@ -1,7 +1,5 @@
 # 📬 Tableau de bord — Suivi des Livraisons La Poste
 
-> Projet portfolio Data Analyst · Paris 18ème · 2025
-
 ## 🎯 Contexte
 
 Ce projet simule et analyse les performances de livraison d'un secteur postal du 18ème arrondissement de Paris (Îlot CAP 18), sur une période de 6 mois (Juillet — Décembre 2025).
