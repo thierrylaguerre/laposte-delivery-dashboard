@@ -21,7 +21,7 @@ Les données ne sont pas issues d'un dataset Kaggle générique — elles ont é
 
 ## 📊 Dashboard interactif
 
-🔗 **[Accéder au dashboard en ligne](LIEN_STREAMLIT_ICI)**
+🔗 **[Accéder au dashboard en ligne]((https://laposte-delivery-dashboard-kahpekuc54tr2x7yq9qzbw.streamlit.app/))**
 
 ## 🗂️ Structure du projet
 ```
